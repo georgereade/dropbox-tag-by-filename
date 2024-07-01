@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Dropbox API access token
-ACCESS_TOKEN = os.getenv('ACCESS_TOKEN')
+ACCESS_TOKEN = os.getenv('TEAM_ACCESS_TOKEN')
 FOLDER_PATH = os.getenv('FOLDER_PATH')  # Specify the folder path you want to search
 KEYWORDS = ['solar']
 TAG = 'testing2'
