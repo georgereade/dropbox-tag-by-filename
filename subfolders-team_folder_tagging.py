@@ -9,13 +9,13 @@ load_dotenv()
 ACCESS_TOKEN = os.getenv('TEAM_ACCESS_TOKEN')
 FOLDER_PATH = os.getenv('TEAM_FOLDER_PATH')  # Specify the folder path you want to search
 DROPBOX_ROOT_ID = os.getenv('DROPBOX_ROOT_ID') # This can be found at the endpoint /users/get_current_account
-KEYWORDS = ['hydro','water']
-TAG = 'hydro'
-
-count = 0
+KEYWORDS = ['"site visit"']
+TAG = 'sitevisit'
 
 # Initialize Dropbox client
 dbx = dropbox.Dropbox(ACCESS_TOKEN)
+
+count = 0
 
 def search_files_and_folders(keyword, path):
     """Search for files and folders containing a specific keyword in a specified folder."""
@@ -62,6 +62,7 @@ def add_tag(path, tag_text):
 
 def process_folder(keyword, path):
     """Recursively process folders to search and tag files and subfolders."""
+    global count
     entries = search_files_and_folders(keyword, path)
     for entry in entries:
         metadata = entry['metadata']['metadata']
@@ -69,7 +70,7 @@ def process_folder(keyword, path):
         name = metadata['name']
         print(f'Found entry: {name} (Path: {path})')
         add_tag(path, TAG)
-        count += 1
+        count = count + 1
         if metadata['.tag'] == 'folder':
             # Recursively process subfolders
             process_folder(keyword, path)
