@@ -9,7 +9,7 @@ load_dotenv()
 ACCESS_TOKEN = os.getenv('TEAM_ACCESS_TOKEN')
 FOLDER_PATH = os.getenv('TEAM_FOLDER_PATH')  # Specify the folder path you want to search
 DROPBOX_ROOT_ID = os.getenv('DROPBOX_ROOT_ID') # This can be found at the endpoint /users/get_current_account
-KEYWORDS = ['"lighting"']
+KEYWORDS = ['lighting']
 TAG = 'lighting'
 
 # Initialize Dropbox client
@@ -96,6 +96,7 @@ def process_folder(keyword, path):
             existing_tags = get_tag(path)
             if TAG in existing_tags:
                 continue
+                print(f"Tag '{TAG}' already exists for {name} (Path: {path})")
                 # print(f"Tag '{TAG}' already exists for {name} (Path: {path})")
             else:
                 add_tag(path, TAG)

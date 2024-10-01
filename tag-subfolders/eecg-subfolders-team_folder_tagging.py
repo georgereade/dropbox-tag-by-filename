@@ -9,7 +9,7 @@ load_dotenv()
 ACCESS_TOKEN = os.getenv('TEAM_ACCESS_TOKEN')
 FOLDER_PATH = os.getenv('TEAM_FOLDER_PATH')  # Specify the folder path you want to search
 DROPBOX_ROOT_ID = os.getenv('DROPBOX_ROOT_ID') # This can be found at the endpoint /users/get_current_account
-KEYWORDS = ['" EECG"','" eecg"']
+KEYWORDS = ['" EECG"','" eecg", "- Energy']
 TAG = 'eecg'
 
 # Initialize Dropbox client

@@ -95,6 +95,7 @@ def process_folder(keyword, path):
             # Check existing tags
             existing_tags = get_tag(path)
             if TAG in existing_tags:
+                print(f"Tag '{TAG}' already exists for {name} (Path: {path})")
                 continue
                 # print(f"Tag '{TAG}' already exists for {name} (Path: {path})")
             else:

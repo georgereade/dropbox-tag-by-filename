@@ -28,6 +28,7 @@ def search_files_and_folders(keyword, path):
         "options": {
             "path": path,
             "file_status": "active",
+            "filename_only": True,
             "file_categories":[{".tag":"folder"},{".tag":"document"},{".tag":"pdf"},{".tag":"spreadsheet"},{".tag":"image"}]
         }
     }
